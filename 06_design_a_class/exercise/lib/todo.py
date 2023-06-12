@@ -85,6 +85,11 @@ class TodoList:
         Returns:
             NoneType
         """
+
+        todo_ids = [item["_id"] for item in self._todo_list]
+
+        if _id not in todo_ids:
+            raise TodoNotFound(_id)
         
         todo_item = list(filter(lambda item: item["_id"] == _id, self._todo_list))[0]
         self._todo_list.remove(todo_item)

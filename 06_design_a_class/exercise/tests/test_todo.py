@@ -35,3 +35,15 @@ def test_delete():
     all_todos = instance.get_all()
     assert (_id, name) not in all_todos
 
+def test_delete_error():
+    instance = TodoList()
+    
+    _id = 123
+    with pytest.raises(TodoNotFound) as e:
+        instance.delete(_id)
+    
+    error = str(e.value)
+    expected = f"Todo with ID: {_id} not found!"
+
+    assert error == expected
+
