@@ -1,6 +1,10 @@
 class SameSongError(Exception):
 
-    def __init__(self, name, artist, message: str = "Song with name: {0} and artist: {1} already exists!") -> None:
+    def __init__(self, 
+                 name,
+                 artist,
+                 message: str = "Song with name: {0} and artist: {1} already exists!"
+                ) -> None:
         super().__init__(message.format(name, artist))
 
 class MusicTracker:
