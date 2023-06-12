@@ -24,3 +24,14 @@ def test_multiple():
         expected_items.append((_id, string))
 
     assert instance.get_all() == expected_items
+
+def test_delete():
+    instance = TodoList() 
+    name = "My Super Short Todo!"
+    _id = instance.create(name)
+
+    instance.delete(_id)
+
+    all_todos = instance.get_all()
+    assert (_id, name) not in all_todos
+

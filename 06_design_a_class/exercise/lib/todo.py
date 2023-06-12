@@ -77,7 +77,7 @@ class TodoList:
         formatted = [(item["_id"], item["todo"]) for item in self._todo_list]
         return formatted
 
-    def delete(self, id: int) -> None:
+    def delete(self, _id: int) -> None:
         """
         Delete a todo by its ID
         Param:
@@ -85,4 +85,6 @@ class TodoList:
         Returns:
             NoneType
         """
-        pass
+        
+        todo_item = list(filter(lambda item: item["_id"] == _id, self._todo_list))[0]
+        self._todo_list.remove(todo_item)
