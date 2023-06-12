@@ -1,3 +1,5 @@
+import random
+
 class TodoNotFound(Exception):
     """
     A custom exception that raises if you try to delete a Todo
@@ -21,7 +23,7 @@ class TodoList:
             "todo": "Write the tests first!"
         }
         """
-        pass
+        self._todo_list: list[dict] = []
 
     def create(self, todo: str) -> int:
         """
@@ -31,7 +33,22 @@ class TodoList:
         Returns:
             - id [int] -> The id created for the todo item
         """
-        pass
+        
+        todo_id = random.randint(100, 999)
+
+        # Check the ID doesn't already exist so there isnt duplicates.
+        all_ids = [item["_id"] for item in self._todo_list]
+        while todo_id in all_ids:
+            todo_id = random.randint(100, 999)
+
+        new_todo = {
+            "_id": todo_id,
+            "todo": todo
+        }
+
+        self._todo_list.append(new_todo)
+        return todo_id
+
     
     def get_all(self) -> list[tuple[int, str]]:
         """
