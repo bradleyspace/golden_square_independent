@@ -49,6 +49,22 @@ class TodoList:
         self._todo_list.append(new_todo)
         return todo_id
 
+    def get_by_id(self, _id: int) -> str:
+        """
+        Get a todo by its ID
+        Param:
+            id [int] - The id for the todo item
+        Returns:
+            str - The todo, if the ID is found, else none.
+        """
+        
+        todo_ids = [item["_id"] for item in self._todo_list]
+
+        if _id not in todo_ids:
+            return None
+
+        todo_item = list(filter(lambda item: item["_id"] == _id, self._todo_list))[0]
+        return todo_item["todo"]
     
     def get_all(self) -> list[tuple[int, str]]:
         """
@@ -57,16 +73,6 @@ class TodoList:
             None
         Returns:
             - List[Tuple[Int, Str]]
-        """
-        pass
-
-    def get_by_id(self, id: int) -> str:
-        """
-        Get a todo by its ID
-        Param:
-            id [int] - The id for the todo item
-        Returns:
-            str - The todo, if the ID is found, else none.
         """
         pass
 
