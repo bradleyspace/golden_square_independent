@@ -74,7 +74,8 @@ class TodoList:
         Returns:
             - List[Tuple[Int, Str]]
         """
-        pass
+        formatted = [(item["_id"], item["todo"]) for item in self._todo_list]
+        return formatted
 
     def delete(self, id: int) -> None:
         """
