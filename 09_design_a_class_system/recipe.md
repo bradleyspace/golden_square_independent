@@ -28,7 +28,6 @@ I want to see a list of all of the mobile phone numbers in all my diary entries
 
 # File: lib/diary.py
 
-@dataclass
 class DiaryEntry:
 
     def __init__(self, title, contents, time) -> None:
@@ -49,11 +48,6 @@ class DiaryEntry:
     @property
     def contents(self) -> str:
         # Returns the title of the DiaryEntry
-
-    @property
-    def as_dict(self) -> dict:
-        # Returns the DiaryEntry object as a dict which can
-        # be serialized into a JSON object to add to the entries
 
 # File: lib/diary.py
 
@@ -107,23 +101,18 @@ class Diary:
 
 # File: lib/todo.py
 
-@dataclass
 class Todo:
     """
     A dataclass representing a single todo item
     """
-    pass
+    def __init__(self, task):
+        """
+        self.task 
+        self.complete
+        """
 
-    @property
-    def id(self):
-        return
-
-    @property
-    def item(self):
-        return
-
-    def delete(self):
-        return
+    def mark_complete():
+        pass
 
 # File: lib/todo.py
 class TodoList:
@@ -134,10 +123,13 @@ class TodoList:
     def __init__(self) -> None:
         return
 
-    def list_todos(self) -> list[Todo]:
+    def add_todo(self, todo):
         return
 
-    def delete_todo(self, _id: int)
+    def complete(self, _id: int) -> list[Todo]:
+        return
+
+    def incomplete(self, _id: int) -> list[Todo]:
         return
 
 # File: lib/user.py (Entry)
