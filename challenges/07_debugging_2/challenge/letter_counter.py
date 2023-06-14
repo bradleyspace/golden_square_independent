@@ -2,7 +2,7 @@ class LetterCounter:
     def __init__(self, text):
         self.text = text
 
-    def calculate_most_common(self):
+    def calculate_most_common(self):    
         counter = {}
         most_common = None
         most_common_count = 0
